@@ -1,0 +1,7 @@
+Informatino Security - lab2 - 6/30/16
+
+* hw 1 - due july 8th
+- convert to lowercase and then back to upper case for capital letters
+- use the plain char to cipher char alpha given
+- 1. 2 parts encrypt, and decrypt
+- 2. no.

@@ -5,8 +5,13 @@
  	1. Read line in from file and encrypt that line
 		1a. encrypt using pattern: c1, c2, c1, c2 ... where c1 uses key 5 and c2 uses key 19
  	2. Decrypt the encrypted line and get back the original plain text
- 
- Environment: Macbook OSX El Capitan, intel i7 2.2 GHz, 16GB RAM.
+ 		2a. write the encrypted line to an output file
+ 		2b. write the decrypted line to an output file ... should match the original text.
+ Notes:
+ 	* only encryptes alpha chars. if the char is capital then i convert it to lowercase, encrypt it and then capitalize the encrypted char.
+	
+ Environment: Macbook OSX El Capitan, intel i7 2.2 GHz, 16GB RAM. 
+ IDE: Apple Xcode
  
 */
 
@@ -25,6 +30,7 @@ vector<int> pattern;
 //int k2 = 19;
 int keys [2] = {5,19};
 
+//declarations
 char getPlainChar(char, int); // decrypt char to get plain char
 char getCipherChar(char, int); // encrypt char to get encrypted char
 string encryptString(string); // encrypt string
@@ -38,8 +44,11 @@ int main()
 	pattern.push_back(2);
 	
     string plainFileName = "plainText.txt";
-    ifstream plainFile (plainFileName);
-    
+	string encryptedFileName = "encryptedText.txt";
+	string decryptedFileName = "decryptedText.txt";
+	
+	ifstream plainFile (plainFileName); // open plain file text
+	
     string plainText = "";
 	getline(plainFile, plainText); // get plain text
 	
@@ -47,11 +56,16 @@ int main()
 	
 	string encryptedString = encryptString(plainText); // encrypt string
 	
+	ofstream encryptedFile (encryptedFileName); // to store the encrypted string
+	encryptedFile << encryptedString; // save encrypted string to file
 	
 	cout << "Encrypt Text:\n\t " << encryptedString << endl;
 	
 	//decrypt encrypted string
 	string decryptedStr = decryptString(encryptedString);
+	
+	ofstream decryptedFile (decryptedFileName); // file to store the decrypted text
+	decryptedFile << decryptedStr;
 	
 	cout << "Decrypted Text:\n\t" << decryptedStr << endl;
 	
@@ -59,6 +73,8 @@ int main()
     
     
     plainFile.close();
+	encryptedFile.close();
+	decryptedFile.close();
 	
     //epiloge
 	cout << endl << "** Exit ** " << endl;
