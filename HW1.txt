@@ -1,0 +1,15 @@
+Juan Pedraza - HW1
+CSci 191T - Information Security
+
+1a. 
+	Plain text: 'This is an easy problem.'
+	Encrypted: 	'Uasi si mj cmiw lokngch.'
+
+1b. 
+	Ecrypted: 	"rmij'u uamu xyj"
+	Decrypted: 	"wasn't that fun"
+
+2. No not 100%, because inorder to be able to decode all future messages you would have to know both c1 and c2 mappings for each letter in the alphabet. This chosen plain text only gives you 44 letter and there are 2 ciphers alphabets so that means you only have 22 letters from the first c1 and 22 letter for c2, not taking into account possible duplicate letters.
+
+** You might be able to get sufficent information about c1 and c2 to see the patterns, c1 is +5 and c2 is +19, but there is no way of you knowing for sure that the +5 and +19 are the correct patterns until you get the mapping for every letter in the alpha.
+But there is also a change the c1 and c2 are randomly generated and the alpha to c1 mappings you find happen to all be plain + 5, but that doesn't mean that that will hold for the other letters you did not get the mappings too.
